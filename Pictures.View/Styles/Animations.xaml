@@ -8,11 +8,11 @@
     <Storyboard x:Key="EnterFromBelowAnimation">
         <!-- Przesunięcie w górę -->
         <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
-                         From="200" To="0" Duration="0:0:1"
+                         From="200" To="0" Duration="0:0:4"
                          EasingFunction="{StaticResource EaseOut}"/>
 
         <!-- Płynne pojawianie się -->
         <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                         From="0" To="1" Duration="0:0:1"/>
+                         From="0" To="1" Duration="0:0:4"/>
     </Storyboard>
 </ResourceDictionary>

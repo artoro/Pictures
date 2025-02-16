@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Pictures.View.Game15Cards"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pictures.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="10" Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}"/>
+            <Style TargetType="Image" BasedOn="{StaticResource PictureCardStyle}"/>
+        </Grid.Resources>
+        
+        <Ellipse Stroke="{StaticResource StandardFontColor}" StrokeThickness="2">
+            <Ellipse.Fill>
+                <MultiBinding Converter="{StaticResource EqualToColorConverter}">
+                    <Binding Path="RundNumber"/>
+                    <Binding Path="MaxRundNumber"/>
+                    <Binding Source="{StaticResource HighlightColor}"/>
+                    <Binding Source="{StaticResource StandardBackground}"/>
+                </MultiBinding>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Viewbox Margin="5">
+            <Label Style="{StaticResource LabelStyle}" FontFamily="Times New Roman" Content="{Binding RundNumber, Mode=OneWay, Converter={StaticResource RomanConverter}}"/>
+        </Viewbox>
+        
+        <Label Grid.Column="1" Content="A"/>
+        <Label Grid.Column="2" Content="B"/>
+        <Label Grid.Column="3" Content="C"/>
+        <Label Grid.Column="4" Content="D"/>
+        <Label Grid.Column="5" Content="E"/>
+        <Label Grid.Row="1" Content="1"/>
+        <Label Grid.Row="2" Content="2"/>
+        <Label Grid.Row="3" Content="3"/>
+        <UniformGrid Rows="3" Columns="5" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="5">
+            <Image x:Name="imageA1" Source="{Binding Cards[0]}"/>
+            <Image x:Name="imageA2" Source="{Binding Cards[1]}"/>
+            <Image x:Name="imageA3" Source="{Binding Cards[2]}"/>
+            <Image x:Name="imageB1" Source="{Binding Cards[3]}"/>
+            <Image x:Name="imageB2" Source="{Binding Cards[4]}"/>
+            <Image x:Name="imageB3" Source="{Binding Cards[5]}"/>
+            <Image x:Name="imageC1" Source="{Binding Cards[6]}"/>
+            <Image x:Name="imageC2" Source="{Binding Cards[7]}"/>
+            <Image x:Name="imageC3" Source="{Binding Cards[8]}"/>
+            <Image x:Name="imageD1" Source="{Binding Cards[9]}"/>
+            <Image x:Name="imageD2" Source="{Binding Cards[10]}"/>
+            <Image x:Name="imageD3" Source="{Binding Cards[11]}"/>
+            <Image x:Name="imageE1" Source="{Binding Cards[12]}"/>
+            <Image x:Name="imageE2" Source="{Binding Cards[13]}"/>
+            <Image x:Name="imageE3" Source="{Binding Cards[14]}"/>
+        </UniformGrid>
+    </Grid>
+</UserControl>

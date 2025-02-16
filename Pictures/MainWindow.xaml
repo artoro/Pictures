@@ -1,0 +1,53 @@
+﻿<Window x:Class="Pictures.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pictures"
+        xmlns:vm="clr-namespace:Pictures.ViewModel"
+        mc:Ignorable="d"
+        WindowStyle="None" AllowsTransparency="False"
+        Title="Pictures" Width="800" Height="600" WindowState="Maximized">
+    
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="{StaticResource StandardBackground}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Menu Style="{StaticResource MenuStyle}">
+                <MenuItem Header="New game" Command="{Binding NewGameCommand}"/>
+                <MenuItem Header="Next rund" Command="{Binding NextRundCommand}"/>
+                <MenuItem Header="Settings">
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <TextBlock>
+                    <Run>Number of rounds </Run>
+                    <Run Text="{Binding MaxRundNumber, Mode=OneWay}" />
+                            </TextBlock>
+                        </MenuItem.Header>
+                        <MenuItem Header="Increase" StaysOpenOnClick="True" Command="{Binding IncreaseRundNumberCommand}"/>
+                        <MenuItem Header="Default" StaysOpenOnClick="True" Command="{Binding SetDefaultRundNumberCommand}"/>
+                        <MenuItem Header="Deacrease" StaysOpenOnClick="True" Command="{Binding DecreaseRundNumberCommand}"/>
+                    </MenuItem>
+
+                    <MenuItem Header="Difficulty level">
+                        <MenuItem x:Name="DifficultyLevelEasy" Header="Easy" StaysOpenOnClick="True" IsCheckable="True" Checked="ChangeDifficultLevelToEasy"/>
+                        <MenuItem x:Name="DifficultyLevelMedium" Header="Medium" StaysOpenOnClick="True" IsCheckable="True" Checked="ChangeDifficultLevelToMedium"/>
+                        <MenuItem x:Name="DifficultyLevelHard" Header="Hard" StaysOpenOnClick="True" IsCheckable="True" Checked="ChangeDifficultLevelToHard"/>
+                    </MenuItem>
+
+                    <MenuItem Header="Edit deck"/>
+                </MenuItem>
+            </Menu>
+            <Button Grid.Column="1" Content="X" Click="CloseApp"/>
+        </Grid>
+        
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

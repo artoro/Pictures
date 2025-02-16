@@ -6,7 +6,7 @@ namespace Pictures.ViewModel
 {
     public class MenuStartViewModel
     {
-        public ICommand NewGameCommand { get; }
+        public ICommand NewGameCommand { get; set; }
         public ICommand JoinGameCommand { get; }
         public ICommand SettingsCommand { get; }
         public ICommand RulesCommand { get; }

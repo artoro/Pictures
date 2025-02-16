@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pictures.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized"
+        Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="Resources/Background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
-    <ContentControl Content="{Binding CurrentView}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Window.Resources>
+        <Style x:Key="PictureCardStyle" TargetType="local:PictureCard">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="150"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="MainContainer">
+        <ContentControl Content="{Binding CurrentView}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
 </Window>

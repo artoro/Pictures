@@ -15,4 +15,32 @@
         <DoubleAnimation Storyboard.TargetProperty="Opacity"
                          From="0" To="1" Duration="0:0:4"/>
     </Storyboard>
+
+    <Storyboard x:Key="PictureCardAnimation">
+        <!-- Opacity: Z czerni do normalnego obrazu w 1 sek. -->
+        <DoubleAnimation Storyboard.TargetName="PictureImage"
+                         Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:1"/>
+
+        <!-- Skalowanie: Początkowy pełny ekran do docelowego rozmiaru -->
+        <DoubleAnimation Storyboard.TargetName="ScaleTransform"
+                         Storyboard.TargetProperty="ScaleX"
+                         From="10" To="1" Duration="0:0:5" />
+        <DoubleAnimation Storyboard.TargetName="ScaleTransform"
+                         Storyboard.TargetProperty="ScaleY"
+                         From="10" To="1" Duration="0:0:5" />
+
+        <!-- Przesunięcie: Z góry na wybrane miejsce -->
+        <DoubleAnimation Storyboard.TargetName="TranslateTransform"
+                         Storyboard.TargetProperty="X"
+                         From="0" To="200" Duration="0:0:5" />
+        <DoubleAnimation Storyboard.TargetName="TranslateTransform"
+                         Storyboard.TargetProperty="Y"
+                         From="-500" To="150" Duration="0:0:5" />
+
+        <!-- Obrót: losowy kąt np. 0 do 360 -->
+        <DoubleAnimation Storyboard.TargetName="RotateTransform"
+                         Storyboard.TargetProperty="Angle"
+                         From="0" To="360" Duration="0:0:5" />
+    </Storyboard>
 </ResourceDictionary>
